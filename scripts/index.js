@@ -14,7 +14,7 @@ function createCard(data, delCard) {
     card.querySelector('.card__title').textContent = data.name;
     card.querySelector('.card__delete-button').addEventListener('click', delCard);
     return card;
-};
+}
 
 // @todo: Функция удаления карточки
 
@@ -25,10 +25,6 @@ function delCard(evt) {
 
 // @todo: Вывести карточки на страницу
 
-function render(data) {
-    data.map(el => {
-        placesList.append(createCard(el, delCard))
-    })
-}
-
-render(initialCards);
+initialCards.map(el => {
+    placesList.append(createCard(el, delCard));
+})
