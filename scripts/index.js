@@ -29,5 +29,5 @@ function deleteCard(cardElement) {
 // @todo: Вывести карточки на страницу
 
 initialCards.forEach(el => {
-    placesList.append(createCard(el, deleteCard));
+    placesList.append(createCard(el));
 })
