@@ -16,3 +16,17 @@ export function checkModalIsOpen() {
     return document.querySelector('.popup_is-opened');
 }
 
+document.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup')) {
+        closeModal(evt.target);
+    }
+})
+
+document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+        const modalIsOpen = checkModalIsOpen();
+        if (modalIsOpen) {
+            closeModal(modalIsOpen);
+        }
+    }
+})

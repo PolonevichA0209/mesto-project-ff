@@ -1,6 +1,6 @@
 import './pages/index.css';
 import { createCard, initialCards } from './scripts/cards';
-import { closeModal, openModal, checkModalIsOpen } from './scripts/modal';
+import { closeModal, openModal } from './scripts/modal';
 import { openImage } from './scripts/components/openImagePopup';
 import { openEditProfile, editProfile } from './scripts/components/editProfile';
 import { addNewCard, newForm } from './scripts/components/addNewCard';
@@ -25,21 +25,6 @@ modalCloseBtn.forEach((closeBtn) => {
     closeBtn.addEventListener('click', () => {
         closeModal(closeBtn.closest('.popup'));
     })
-})
-
-document.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains('popup')) {
-        closeModal(evt.target);
-    }
-})
-
-document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-        const modalIsOpen = checkModalIsOpen();
-        if (modalIsOpen) {
-            closeModal(modalIsOpen);
-        }
-    }
 })
 
 // Создание карточек
