@@ -1,11 +1,10 @@
 import './pages/index.css';
-import { createCard, initialCards } from './scripts/cards';
-import { closeModal, openModal } from './scripts/modal';
+import { initialCards } from './scripts/cards';
+import { createCard, likeCard } from './scripts/components/card';
+import { closeModal, openModal, closePopupByOverlay } from './scripts/modal';
 import { openImage } from './scripts/components/openImagePopup';
 import { openEditProfile, editProfile } from './scripts/components/editProfile';
 import { addNewCard, newForm } from './scripts/components/addNewCard';
-import { likeCard } from './scripts/components/likeCard';
-
 
 // Контейнер карточек на странице
 const placesList = document.querySelector('.places__list');
@@ -26,6 +25,8 @@ modalCloseBtn.forEach((closeBtn) => {
         closeModal(closeBtn.closest('.popup'));
     })
 })
+
+document.addEventListener('click', closePopupByOverlay)
 
 // Создание карточек
 initialCards.forEach(el => {
@@ -53,6 +54,12 @@ editProfileForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     editProfile();
     closeModal(modalEditProfile);
+})
+
+const modalList = document.querySelectorAll('.popup');
+
+modalList.forEach((modal) => {
+    modal.classList.add('popup_is-animated');
 })
 
 

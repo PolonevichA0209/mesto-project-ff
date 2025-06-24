@@ -1,5 +1,3 @@
-
-
 export function editProfile() {
     const editProfileForm = document.querySelector('.popup_type_edit');
     const editProfileName = editProfileForm.querySelector('.popup__input_type_name');
